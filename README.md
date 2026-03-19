@@ -22,10 +22,7 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 
 ## Installation
 
-1. Clone or extract this extension into your VS Code extensions folder
-2. Or: Build locally with `npm install` and `npm run compile`
-3. Reload VS Code
-4. The extension will automatically detect and connect to Astra
+NEED TO UPDATE THIS
 
 ## How to Use
 
@@ -33,13 +30,13 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 1. Open VS Code
 2. Look for "Astra Miniplayer" in the **Explorer** sidebar
 3. You should see a connection status indicator
-
-### Playback Control
-Once connected to Astra:
-- **Play/Pause** - Click the play/pause button
-- **Next Track** - Click the next button
-- **Previous Track** - Click the previous button
-- **See Now Playing** - Current track title and artist display in real-time
+4. Press `Shift + P` and input `>Astra:Configure API `
+5. Get your API key from the intergrations tab of Astra's settings
+> [!WARNING]
+> Both `Local Integration API` and `External Playback Controls` needs to be enabled in Astra settings for the extension to work properly
+6. Copy the Local API endpoint and remove the end part so it shows up as `http://127.0.0.1:38401` 
+7. Input your API Key
+8. Done!
 
 
 ## Troubleshooting
