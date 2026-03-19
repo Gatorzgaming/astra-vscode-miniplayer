@@ -17,7 +17,7 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 
 ## Requirements
 
-- **Astra** must be installed and running on your system
+- **Astra** 0.4.0 or greater must be installed and running on your system
 - VS Code 1.60.0 or higher
 
 ## Installation
