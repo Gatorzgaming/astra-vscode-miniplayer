@@ -1,0 +1,104 @@
+{
+  "name": "miniplayer",
+  "displayName": "Miniplayer",
+  "description": "VSCode miniplayer that hooks into Astra application",
+  "version": "0.0.3",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onView:miniplayer.view"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "miniplayer.open",
+        "title": "Open Miniplayer",
+        "category": "Astra"
+      },
+      {
+        "command": "astra.configure",
+        "title": "Configure Astra API",
+        "category": "Astra"
+      },
+      {
+        "command": "miniplayer.reconnect",
+        "title": "Reconnect Miniplayer",
+        "shortTitle": "↻",
+        "category": "Astra"
+      },
+      {
+        "command": "miniplayer.toggleStatusBar",
+        "title": "Toggle Status Bar",
+        "shortTitle": "🛈",
+        "category": "Astra"
+      }
+    ],
+        "menus": {
+          "view/title": [
+            {
+              "command": "miniplayer.reconnect",
+              "when": "view == miniplayer.view",
+              "group": "navigation@100"
+            },
+            {
+              "command": "miniplayer.toggleStatusBar",
+              "when": "view == miniplayer.view",
+              "group": "navigation@101"
+            }
+          ]
+        },
+    "views": {
+      "explorer": [
+        {
+          "id": "miniplayer.view",
+          "name": "Astra Miniplayer",
+          "type": "webview",
+          "when": "true",
+          "icon": "resources/miniplayer.svg"
+        }
+      ]
+    },
+    "configuration": {
+      "properties": {
+        "astra.api.endpoint": {
+          "type": "string",
+          "description": "Base URL for Astra Local Integration API (e.g. http://127.0.0.1:38401)",
+          "default": ""
+        },
+        "astra.api.albumArtEndpoint": {
+          "type": "string",
+          "description": "Optional URL to fetch album art (returns base64).",
+          "default": ""
+        },
+        "astra.api.pollInterval": {
+          "type": "number",
+          "description": "Polling interval (ms) when SSE is not used.",
+          "default": 2000
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.54.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

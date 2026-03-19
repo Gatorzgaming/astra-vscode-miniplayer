@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Astra Miniplayer</title>
+	<link rel="stylesheet" type="text/css" href="miniplayer.css">
+</head>
+<body>
+	<div class="miniplayer-container">
+		<!-- Now Playing - Horizontal Layout -->
+		<div class="now-playing-section">
+			<div class="album-art" id="albumArt">🎵</div>
+			<div class="track-info">
+				<div class="status-indicator">
+					<span class="status-dot" id="statusDot"></span>
+					<span id="statusText">Offline</span>
+				</div>
+				<div class="track-title" id="trackTitle">No track</div>
+				<div class="track-artist" id="trackArtist">Unknown</div>
+				<div class="controls-section">
+					<button id="prevBtn" title="Previous">⏮</button>
+					<button id="playBtn" title="Play/Pause">▶</button>
+					<button id="nextBtn" title="Next">⏭</button>
+					<button id="favoriteBtn" title="Like">♡</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Status Bar -->
+		<div class="status-bar" id="statusBar">Offline</div>
+	</div>
+
+	<script src="miniplayer.js"></script>
+</body>
+</html>
