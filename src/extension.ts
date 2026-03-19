@@ -109,13 +109,17 @@ export class AstraConnection {
 	}
 
 	private startPolling() {
-		if (this.pollTimer) clearInterval(this.pollTimer);
+		if (this.pollTimer) {
+			clearInterval(this.pollTimer);
+		}
 		this.pollTimer = setInterval(async () => {
 			const status = await this.fetchNowPlaying(false);
 			if (status) {
 				this.lastStatus = status;
 				this.connected = true;
-				if (this.statusCallback) this.statusCallback(status);
+				if (this.statusCallback) {
+					this.statusCallback(status);
+				}
 			} else {
 				this.connected = false;
 			}
@@ -126,12 +130,16 @@ export class AstraConnection {
 	}
 
 	private startAlbumArtPolling() {
-		if (this.albumArtPollTimer) clearInterval(this.albumArtPollTimer);
+		if (this.albumArtPollTimer) {
+			clearInterval(this.albumArtPollTimer);
+		}
 		this.albumArtPollTimer = setInterval(async () => {
 			const status = await this.fetchNowPlaying(true);
 			if (status && status.albumArt !== this.lastStatus.albumArt) {
 				this.lastStatus.albumArt = status.albumArt;
-				if (this.statusCallback) this.statusCallback({ ...this.lastStatus });
+				if (this.statusCallback) {
+					this.statusCallback({ ...this.lastStatus });
+				}
 			}
 		}, this.albumArtPollInterval);
 	}
@@ -182,7 +190,9 @@ export class AstraConnection {
 	}
 
 	async sendCommand(cmd: string): Promise<void> {
-		if (!this.endpoint || !this.apiKey) return;
+		if (!this.endpoint || !this.apiKey) {
+			return;
+		}
 		try {
 			await httpPost(this.endpoint + '/v1/control', JSON.stringify({ command: cmd }), {
 				Authorization: `Bearer ${this.apiKey}`,
@@ -218,15 +228,23 @@ export function activate(context: vscode.ExtensionContext) {
 		       vscode.commands.registerCommand('miniplayer.reconnect', async () => {
 			       await initializeAstraConnection();
 			       // Send refresh to webview
-			       if (miniplayerView) miniplayerView.webview.postMessage({ command: 'refresh' });
-			       if (miniplayerPanel) miniplayerPanel.webview.postMessage({ command: 'refresh' });
+			       if (miniplayerView) {
+				       miniplayerView.webview.postMessage({ command: 'refresh' });
+			       }
+			       if (miniplayerPanel) {
+				       miniplayerPanel.webview.postMessage({ command: 'refresh' });
+			       }
 		       })
 	       );
 	       // Add toggle status bar command
 	       context.subscriptions.push(
 		       vscode.commands.registerCommand('miniplayer.toggleStatusBar', () => {
-			       if (miniplayerView) miniplayerView.webview.postMessage({ command: 'toggleStatusBar' });
-			       if (miniplayerPanel) miniplayerPanel.webview.postMessage({ command: 'toggleStatusBar' });
+			       if (miniplayerView) {
+				       miniplayerView.webview.postMessage({ command: 'toggleStatusBar' });
+			       }
+			       if (miniplayerPanel) {
+				       miniplayerPanel.webview.postMessage({ command: 'toggleStatusBar' });
+			       }
 		       })
 	       );
 
@@ -248,7 +266,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		new vscode.Disposable(() => {
-			if (astraConnection) astraConnection.disconnect();
+			if (astraConnection) {
+				astraConnection.disconnect();
+			}
 		})
 	);
 }
@@ -271,7 +291,9 @@ async function configureAstraApi() {
 }
 
 async function initializeAstraConnection(): Promise<void> {
-    if (!astraConnection) astraConnection = new AstraConnection();
+    if (!astraConnection) {
+        astraConnection = new AstraConnection();
+    }
     const config = vscode.workspace.getConfiguration('astra.api');
     const endpoint = (config.get<string>('endpoint') || '').trim();
 	const pollInterval = config.get<number>('pollInterval') || 2000;
@@ -285,8 +307,12 @@ async function initializeAstraConnection(): Promise<void> {
     astraConnection.setPollInterval(pollInterval);
     astraConnection.setStatusCallback(status => {
         const msg = { command: 'updateStatus', status };
-        if (miniplayerView) miniplayerView.webview.postMessage(msg);
-        if (miniplayerPanel) miniplayerPanel.webview.postMessage(msg);
+        if (miniplayerView) {
+            miniplayerView.webview.postMessage(msg);
+        }
+        if (miniplayerPanel) {
+            miniplayerPanel.webview.postMessage(msg);
+        }
     });
 
 	const ok = await astraConnection.initialize();
@@ -299,7 +325,9 @@ async function initializeAstraConnection(): Promise<void> {
 }
 
 function handleWebviewMessage(message: any, panel?: vscode.WebviewPanel, view?: vscode.WebviewView) {
-	if (!astraConnection) return;
+	if (!astraConnection) {
+		return;
+	}
 	switch (message.command) {
 		case 'play':
 			astraConnection.sendCommand('play');
@@ -324,12 +352,20 @@ function handleWebviewMessage(message: any, panel?: vscode.WebviewPanel, view?: 
 }
 
 async function getStatus(panel?: vscode.WebviewPanel, view?: vscode.WebviewView) {
-	if (!astraConnection) return;
+	if (!astraConnection) {
+		return;
+	}
 	const status = await astraConnection.getStatus();
 	const msg = { command: 'updateStatus', status };
-	if (panel) panel.webview.postMessage(msg);
-	if (view) view.webview.postMessage(msg);
-	if (!panel && !view && miniplayerView) miniplayerView.webview.postMessage(msg);
+	if (panel) {
+		panel.webview.postMessage(msg);
+	}
+	if (view) {
+		view.webview.postMessage(msg);
+	}
+	if (!panel && !view && miniplayerView) {
+		miniplayerView.webview.postMessage(msg);
+	}
 }
 
 function openMiniplayer(context: vscode.ExtensionContext) {
@@ -383,7 +419,11 @@ class MiniplayerViewProvider implements vscode.WebviewViewProvider {
 		webviewView.webview.options = { enableScripts: true, localResourceRoots: [vscode.Uri.file(path.join(this.extensionUri.fsPath, 'media'))] };
 		webviewView.webview.html = getWebviewContent(webviewView.webview, this.extensionUri);
 		webviewView.webview.onDidReceiveMessage(message => handleWebviewMessage(message, undefined, webviewView));
-		webviewView.onDidChangeVisibility(() => { if (webviewView.visible) getStatus(undefined, webviewView); });
+		webviewView.onDidChangeVisibility(() => {
+			if (webviewView.visible) {
+				getStatus(undefined, webviewView);
+			}
+		});
 		getStatus(undefined, webviewView);
 	}
 }
@@ -391,5 +431,7 @@ class MiniplayerViewProvider implements vscode.WebviewViewProvider {
 	// Load HTML from external file and inject webview URIs for CSS and JS
 
 export function deactivate() {
-	if (astraConnection) astraConnection.disconnect();
+	if (astraConnection) {
+		astraConnection.disconnect();
+	}
 }

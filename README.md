@@ -20,15 +20,66 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 ## Requirements
 
 - **Astra** 0.4.0 or greater must be installed and running on your system
-- VS Code 1.60.0 or higher
+- VS Code 1.109.0 or higher
+- Node.js 22 LTS and npm for building from source
 
 ## Installation
 
-NEED TO UPDATE THIS
+To install the extension in your normal VS Code instance:
+
+1. Clone this repository and open it in VS Code.
+2. Install dependencies:
+
+```bash
+npm ci
+```
+
+3. Build the extension:
+
+```bash
+npm run compile
+```
+
+4. Package the extension as a VSIX:
+
+```bash
+npx @vscode/vsce package --no-yarn
+```
+
+5. In VS Code, open the Extensions view.
+6. Open the `...` menu in the top right of the Extensions view.
+7. Choose `Install from VSIX...`.
+8. Select the generated `miniplayer-0.0.3.vsix` file.
+
+For development only, use `F5` to launch an Extension Development Host instead of installing the VSIX.
 
 ## Building
 
-NEED TO UPDATE THIS
+Use the standard project scripts:
+
+```bash
+npm run compile
+```
+
+This compiles the TypeScript source into `out/`.
+
+To create an installable VSIX package, run:
+
+```bash
+npx @vscode/vsce package --no-yarn
+```
+
+For active development, run:
+
+```bash
+npm run watch
+```
+
+To check the codebase before committing, run:
+
+```bash
+npm run lint
+```
 
 ## How to Use
 
