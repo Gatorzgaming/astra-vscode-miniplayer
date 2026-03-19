@@ -1,5 +1,5 @@
-[!IMPORTANT]
-**Made for [Astra](https://github.com/Boof2015/astra)** - An audiophile music player with gapless playback, parametric EQ, and real-time DSP visualizers.
+> [!IMPORTANT]
+> **Made for [Astra](https://github.com/Boof2015/astra)** - An audiophile music player with gapless playback, parametric EQ, and real-time DSP visualizers.
 
 # Astra Miniplayer for VS Code
 
