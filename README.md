@@ -12,7 +12,7 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 - **Real-time Status**: Automatically detects when Astra is running and syncs playback state
 - **Now Playing Display**: Shows current track title and artist
 - **Process Detection**: Automatically finds and connects to running Astra instance
-- **Direct IPC Integration**: Hooks into Astra's native Electron IPC message system
+- **IPC Integration**: Uses  Astra's native API message system to allow liking of songs. 
 - **Responsive UI**: Adapts to sidebar width with responsive layout
 
 ## Requirements
