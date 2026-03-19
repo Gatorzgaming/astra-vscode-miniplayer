@@ -24,6 +24,10 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 
 NEED TO UPDATE THIS
 
+## Building
+
+NEED TO UPDATE THIS
+
 ## How to Use
 
 ### Enable the Miniplayer
