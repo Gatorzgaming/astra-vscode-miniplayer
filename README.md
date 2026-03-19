@@ -4,6 +4,8 @@
 # Astra Miniplayer for VS Code
 
 A lightweight miniplayer extension that integrates directly with the Astra music player application, allowing you to control playback without leaving VS Code.
+<img width="305" height="152" alt="image" src="https://github.com/user-attachments/assets/d3ed5e37-2d8b-42b1-b718-1ab159d363a0" />
+
 
 ## Features
 
@@ -13,7 +15,6 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 - **Now Playing Display**: Shows current track title and artist
 - **Process Detection**: Automatically finds and connects to running Astra instance
 - **IPC Integration**: Uses  Astra's native API message system to allow liking of songs. 
-- **Responsive UI**: Adapts to sidebar width with responsive layout
 
 ## Requirements
 
