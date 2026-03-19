@@ -36,7 +36,7 @@ NEED TO UPDATE THIS
 1. Open VS Code
 2. Look for "Astra Miniplayer" in the **Explorer** sidebar
 3. You should see a connection status indicator
-4. Press `Shift + P` and type `>Astra:Configure Astra API `
+4. Press `CTRL + P` and type `>Astra:Configure Astra API `
 5. Get your API key from the intergrations tab of Astra's settings
 > [!WARNING]
 > Both `Local Integration API` and `External Playback Controls` needs to be enabled in Astra settings for the extension to work properly
