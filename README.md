@@ -11,7 +11,7 @@ A lightweight miniplayer extension that integrates directly with the Astra music
 <img width="305" height="152" alt="image" src="https://github.com/user-attachments/assets/d3ed5e37-2d8b-42b1-b718-1ab159d363a0" />
 
 
-> [!IMPORTANT]
+> [!NOTE]
 > **Made for [Astra](https://github.com/Boof2015/astra)** - An audiophile music player with gapless playback, parametric EQ, and real-time DSP visualizers.
 
 ## Features
