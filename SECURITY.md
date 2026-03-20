@@ -7,8 +7,7 @@ Major versions will also recive security updates for 30 days in addtion to the l
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.3.0   | :white_check_mark: |
-          |
+| 0.0.4   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
