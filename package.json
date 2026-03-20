@@ -42,20 +42,20 @@
         "category": "Astra"
       }
     ],
-        "menus": {
-          "view/title": [
-            {
-              "command": "miniplayer.reconnect",
-              "when": "view == miniplayer.view",
-              "group": "navigation@100"
-            },
-            {
-              "command": "miniplayer.toggleStatusBar",
-              "when": "view == miniplayer.view",
-              "group": "navigation@101"
-            }
-          ]
+    "menus": {
+      "view/title": [
+        {
+          "command": "miniplayer.reconnect",
+          "when": "view == miniplayer.view",
+          "group": "navigation@100"
         },
+        {
+          "command": "miniplayer.toggleStatusBar",
+          "when": "view == miniplayer.view",
+          "group": "navigation@101"
+        }
+      ]
+    },
     "views": {
       "explorer": [
         {
@@ -95,14 +95,14 @@
     "lint": "eslint src",
     "test": "vscode-test"
   },
-
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "@types/vscode": "^1.109.0",
-    "@types/node": "22.x",
-    "typescript-eslint": "^8.54.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.54.0"
   }
 }
