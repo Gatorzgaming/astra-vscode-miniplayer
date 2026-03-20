@@ -88,11 +88,25 @@ npm run lint
 2. Look for "Astra Miniplayer" in the **Explorer** sidebar
 3. You should see a connection status indicator
 4. Press `CTRL + P` and type `>Astra:Configure Astra API `
+
+<img width="604" height="229" alt="image" src="https://github.com/user-attachments/assets/93eed3d4-25f0-405d-96b4-94dad14672e7" />
+
+
 5. Get your API key from the intergrations tab of Astra's settings
 > [!WARNING]
 > Both `Local Integration API` and `External Playback Controls` needs to be enabled in Astra settings for the extension to work properly
-6. Copy the Local API endpoint and remove the end part so it shows up as `http://127.0.0.1:38401` 
+
+<img width="1919" height="1144" alt="image" src="https://github.com/user-attachments/assets/01c3ffb9-5a95-4952-b873-99c323adf0e0" />
+
+6. Copy the Local API endpoint and remove the end part so it shows up as `http://127.0.0.1:38401` for example
+
+<img width="607" height="80" alt="image" src="https://github.com/user-attachments/assets/ef344978-a24c-4694-91a0-285eb83fdb44" />
+
 7. Input your API Key
+
+<img width="603" height="73" alt="image" src="https://github.com/user-attachments/assets/8cd0fc49-1b6d-4e82-abbb-01ceb99dd04b" />
+
+ 
 8. Done!
 
 
