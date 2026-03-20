@@ -100,8 +100,7 @@ npm run lint
 
 6. Copy the Local API endpoint and remove the end part so it shows up as `http://127.0.0.1:38401` for example
 
-<img width="603" height="80" alt="image" src="https://github.com/user-attachments/assets/eb395f84-eb1d-4507-94f3-bdbccfdfa8b4" />
-
+<img width="607" height="80" alt="image" src="https://github.com/user-attachments/assets/ef344978-a24c-4694-91a0-285eb83fdb44" />
 
 7. Input your API Key
 
