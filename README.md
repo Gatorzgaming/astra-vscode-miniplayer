@@ -5,6 +5,12 @@
 
 A lightweight miniplayer extension that integrates directly with the Astra music player application, allowing you to control playback without leaving VS Code.
 
+![code size](https://img.shields.io/github/languages/code-size/Gatorzgaming/astra-vscode-miniplayer)
+![GitHub Release](https://img.shields.io/github/v/release/Gatorzgaming/astra-vscode-miniplayer?include_prereleases)
+![GitHub License](https://img.shields.io/github/license/Gatorzgaming/astra-vscode-miniplayer)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Gatorzgaming/astra-vscode-miniplayer/release.yml)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Gatorzgaming/astra-vscode-miniplayer/total)
+
 <img width="305" height="152" alt="image" src="https://github.com/user-attachments/assets/d3ed5e37-2d8b-42b1-b718-1ab159d363a0" />
 
 
