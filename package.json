@@ -2,7 +2,7 @@
   "name": "miniplayer",
   "displayName": "Miniplayer",
   "description": "VSCode miniplayer that uses the Astra API to display currently playing track info and control playback.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/Gatorzgaming/astra-vscode-miniplayer.git"
